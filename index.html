@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Rubik:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Jogo da Memória</title>
+  </head>
+  <body>
+    <main id="container">
+      <h1 class="title">Jogo da Memória</h1>
+      <div class="game-info">
+        <p>Jogadas: <span id="moves">0</span>/<span id="max-moves">5</span></p>
+      </div>
+      <div class="grid-container">
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="cardback.jpg" class="card-image" alt="front" />
+            </div>
+            <div class="card-back">
+              <!-- Imagem frontal (será adicionada via JavaScript) -->
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="cardback.jpg" class="card-image" alt="front" />
+            </div>
+            <div class="card-back">
+              <!-- Imagem frontal (será adicionada via JavaScript) -->
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="cardback.jpg" class="card-image" alt="front" />
+            </div>
+            <div class="card-back">
+              <!-- Imagem frontal (será adicionada via JavaScript) -->
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="cardback.jpg" class="card-image" alt="front" />
+            </div>
+            <div class="card-back">
+              <!-- Imagem frontal (será adicionada via JavaScript) -->
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="cardback.jpg" class="card-image" alt="front" />
+            </div>
+            <div class="card-back">
+              <!-- Imagem frontal (será adicionada via JavaScript) -->
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="cardback.jpg" class="card-image" alt="front" />
+            </div>
+            <div class="card-back">
+              <!-- Imagem frontal (será adicionada via JavaScript) -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="win-message">
+        <h2>Parabéns! 🎉</h2>
+        <p>Todos os pares foram encontrados!</p>
+        <button
+          id="restart-win"
+          role="button"
+          aria-label="Reiniciar jogo após vitória"
+        >
+          Jogar Novamente
+        </button>
+      </div>
+      <div class="lose-message">
+        <h2>Fim de jogo! 😢</h2>
+        <p>Você atingiu o limite de jogadas.</p>
+        <button
+          id="restart-lose"
+          role="button"
+          aria-label="Reiniciar jogo após derrota"
+        >
+          Tentar Novamente
+        </button>
+      </div>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>

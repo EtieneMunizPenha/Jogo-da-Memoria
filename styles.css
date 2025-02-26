@@ -1,0 +1,196 @@
+*,
+*::before,
+*::after {
+  font-size: 10px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "MedievalSharp", serif;
+}
+
+:root {
+  --white: #fff;
+  --maroon: #800000;
+  --gold: #eeba2f;
+  --gold-1: #d3a62f;
+  --card-width: 150px;
+}
+
+body {
+  background-image: url(background.jpg);
+  background-size: cover;
+  position: relative;
+  height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); /* Branco semitransparente para clarear */
+  z-index: -1; /* Mantém atrás de tudo */
+}
+
+.title {
+  font-size: 5rem;
+  text-align: center;
+  margin: 0.5rem auto;
+  color: var(--gold);
+}
+
+.game-info {
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 3rem;
+  color: var(--gold);
+}
+
+.game-info p,
+.game-info span {
+  font-size: 1.8rem;
+}
+
+#moves {
+  font-weight: bold;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  justify-items: center;
+  align-items: center;
+  max-width: 80%;
+  min-height: 60vh; /* Previne colapso em telas pequenas */
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.card {
+  cursor: pointer; /* Indica elemento clicável */
+  perspective: 100rem;
+  width: var(--card-width);
+  height: calc(var(--card-width) * 1.4);
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d; /*cria o efeito 3D*/
+  position: relative;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /*esconde o verso durante a rotação*/
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-front {
+  background: var(--gold);
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  background: var(--gold);
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card-back img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+.win-message,
+.lose-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  display: none; /* Escondido inicialmente */
+  z-index: 1000;
+}
+.win-message p,
+.win-message h2,
+.lose-message p,
+.lose-message h2 {
+  font-size: 2rem;
+  color: var(--maroon);
+}
+
+.win-message.show,
+.lose-message.show {
+  display: block;
+}
+
+#restart-win,
+#restart-lose {
+  background: var(--gold);
+  color: var(--maroon);
+  font-size: 2rem;
+  font-weight: 600;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  :root {
+    --card-width: 12rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  :root {
+    --card-width: 10rem;
+  }
+
+  .win-message p,
+  .win-message h2,
+  .lose-message p,
+  .lose-message h2,
+  #restart-win,
+  #restart-lose {
+    font-size: 1.5rem;
+  }
+}
